@@ -79,7 +79,7 @@ class LiveCodePhpcpdRunner implements ToolInterface, BlacklistInterface
     {
         $clones = (new Detector(new DefaultStrategy()))->copyPasteDetection(
             (new Facade())->getFilesAsArray(
-                $whiteList,
+                $this->getSourceCodePath($whiteList),
                 '',
                 '',
                 $this->getExclude()
@@ -170,5 +170,13 @@ class LiveCodePhpcpdRunner implements ToolInterface, BlacklistInterface
         }
 
         return $result;
+    }
+
+    private function getSourceCodePath($whiteList): string
+    {
+    	if(!empty($whiteList)){
+    		return implode(',', $whiteList);
+    	}
+        return $_SERVER['GITHUB_WORKSPACE'] ?: '/var/www/html';
     }
 }
