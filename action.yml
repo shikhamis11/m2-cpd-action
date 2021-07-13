@@ -1,0 +1,8 @@
+name: 'Magento 2 Copy Paste Detector'
+description: 'performs php static code analysis with the Magento 2 Copy Paste Detector ruleset'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'code'  
+  color: 'green'
