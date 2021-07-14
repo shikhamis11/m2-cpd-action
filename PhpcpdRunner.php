@@ -60,7 +60,7 @@ class PhpcpdRunner extends \PHPUnit\Framework\TestCase
 
         $copyPasteDetector->setBlackList($blackList);
 
-        $result = $copyPasteDetector->run([BP]);
+        $result = $copyPasteDetector->run([]);
 
         $output = file_exists($reportFile) ? file_get_contents($reportFile) : '';
 

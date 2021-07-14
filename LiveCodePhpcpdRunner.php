@@ -79,7 +79,7 @@ class LiveCodePhpcpdRunner implements ToolInterface, BlacklistInterface
     {
         $clones = (new Detector(new DefaultStrategy()))->copyPasteDetection(
             (new Facade())->getFilesAsArray(
-                $this->getSourceCodePath($whiteList),
+                $whiteList,
                 '',
                 '',
                 $this->getExclude()
