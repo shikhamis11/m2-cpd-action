@@ -86,7 +86,7 @@ class LiveCodePhpcpdRunner implements ToolInterface, BlacklistInterface
 
         $command = $this->getCommand() . ' --log-pmd ' . escapeshellarg($this->reportFile)
             . ' --names-exclude ' . join(',', $blacklistedFileNames) . ' --min-lines 13 ' . join(' ', $blacklistedDirs)
-            . ' ' . implode(' ', $whiteList);
+            . ' ' . $this->getSourceCodePath($whiteList);
         exec($command, $output, $exitCode);
 
         return !(bool)$exitCode;
