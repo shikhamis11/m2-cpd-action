@@ -7,7 +7,7 @@
          bootstrap="./framework/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="phpmd-m2">
+        <testsuite name="phpcpd-m2">
             <file>testsuite/Magento/Test/Php/PhpcpdRunner.php</file>
         </testsuite>
     </testsuites>
