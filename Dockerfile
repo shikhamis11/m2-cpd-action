@@ -1,11 +1,11 @@
 FROM extdn/magento-integration-tests-action:7.4-latest AS builder
 RUN echo memory_limit = -1 >> /usr/local/etc/php/conf.d/custom-memory.ini
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer create-project --repository=https://repo-magento-mirror.fooman.co.nz/ --no-plugins --no-install --no-interaction magento/project-community-edition /var/www/magento2ce "2.4.1"
+
+RUN composer2 create-project --repository=https://repo-magento-mirror.fooman.co.nz/ --no-plugins --no-install --no-interaction magento/project-community-edition /var/www/magento2ce "2.4.1"
 WORKDIR "/var/www/magento2ce"
-RUN composer config --unset repo.0
-RUN composer config repo.foomanmirror composer https://repo-magento-mirror.fooman.co.nz/
-RUN composer install --prefer-dist
+RUN composer2 config --unset repo.0
+RUN composer2 config repo.foomanmirror composer https://repo-magento-mirror.fooman.co.nz/
+RUN composer2 install --prefer-dist
 
 
 FROM extdn/magento-integration-tests-action:7.4-latest
